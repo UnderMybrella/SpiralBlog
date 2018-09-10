@@ -19,6 +19,8 @@ gitlab: ''
 # Set this to your UA-# value, or '' to disable the block completely
 gaaccount: ''
 
+google_site_verification: '8BSWzRlkd8YHepxqQwms2xRBStetXSTvjiTi8PRLMX0'
+
 # The 'comments' setting enables comments. You'll need to select either
 # disqus or isso below to choose a comment system. Individual posts can
 # override 'comments' to disable on a post-by-post basis.
