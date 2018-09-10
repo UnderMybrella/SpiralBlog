@@ -3,7 +3,7 @@
 name: Spiral Blog
 description: A simple blog outlining victories (and defeats) working with Spiral
 
-# url is currently only used only for the RSS feed in feed.xml
+# url is currently only used only for the RSS feed in feed.xml and the sitemap
 url: https://spiralblog.abimon.org
 
 # baseurl will often be '', but for a project page on gh-pages, it needs to
@@ -35,6 +35,6 @@ paginate: 3
 
 highlighter: rouge
 markdown: kramdown
-plugins: ['jekyll-paginate']
+plugins: ['jekyll-paginate', 'jekyll-sitemap']
 
 exclude: ['README.md', 'LICENSE']
