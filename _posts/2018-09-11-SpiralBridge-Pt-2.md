@@ -108,7 +108,7 @@ Now, I can't read through every region there is, that would be silly.
 
 Don't believe me? I had a region that had a supposed space of *over 170* ***GB***. Yeah, gigabytes. Over 170 ***billion*** bytes. 
 
-I wouldn't be able to create an array to hold it all; beyond the fact it would crash every computer it ran on, the JVM only lets you use an integer for array indexing (for good reason, mind you)<sup>[1](#nb-1)</sup>.
+I wouldn't be able to create an array to hold it all; beyond the fact it would crash every computer it ran on, the JVM only lets you use an integer for array indexing (for good reason, mind you)<sup>[^nb-1]</sup>.
 
 The time it'd take would be insane as well. The tower I use for Windows isn't the best, but it was taking a second or so *per loop*. For safety, that would mean that we need to sleep for *at least* 3 seconds to make sure we get a double pass; and that was only 6 megabytes!
 
@@ -186,4 +186,4 @@ SpiralBridge is available to look at now over [here](http://github.com/UnderMybr
 
 <hr>
 
-<sup id="nb-1">1</sup> Yeah, I could have/may use chunking, but that's beside the point honestly.
+[^nb-1]: Yeah, I could have/may use chunking, but that's beside the point honestly.

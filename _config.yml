@@ -4,7 +4,7 @@ name: Spiral Blog
 description: A simple blog outlining victories (and defeats) working with Spiral
 
 # url is currently only used only for the RSS feed in feed.xml and the sitemap
-url: https://spiralblog.abimon.org
+url: https://blog.spiralframework.info
 
 # baseurl will often be '', but for a project page on gh-pages, it needs to
 # be the project name.

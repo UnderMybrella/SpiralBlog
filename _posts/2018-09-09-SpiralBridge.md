@@ -63,7 +63,7 @@ Stop Script|
 
 This looks good on the surface, and works well, but now we hit problem #2 - while we control the variables, we only have so much control over the *timing*.
 
-The script above changes variable 30 to 1, then 2, then 4, then 8, then 16. We wait for the user's input in between each one<sup>[1](#nb-1)</sup>, and if we load up Cheat Engine we can narrow the address down. 
+The script above changes variable 30 to 1, then 2, then 4, then 8, then 16. We wait for the user's input in between each one<sup>[^nb-1]</sup>, and if we load up Cheat Engine we can narrow the address down. 
 
 This is great, except for one thing - we don't want the user to have to manually track down the memory address using Cheat Engine, especially since they'd have to do it every time the game starts up.
 
@@ -74,7 +74,7 @@ While we could do something like [pressing the input button for the player](http
 
 These problems can be solved with a sleep/delay, however. Fortunately, initial research would seem that we [already have a sleep op code](https://spiralwiki.abimon.org/wiki/0x33#Modes_5_and_6:_Wait).
 
-Coupling this with the fact that most systems will run the game at ~60 fps<sup>[2](#nb-2)</sup>, and we get:
+Coupling this with the fact that most systems will run the game at ~60 fps<sup>[^nb-2]</sup>, and we get:
 
 ```
 OSL Script
@@ -107,7 +107,7 @@ For some reason, the time waited was inconsistent; sometimes it was 2 seconds, o
 
 At this point, I'll be honest I can't remember if I ended up trying out `0x33|6`, but the conclusion was clear - we were getting inconsistencies in the delays, and that was unacceptable for our use case.
 
-Not wanting to deal with more consistency issues<sup>[2](#nb-2)</sup>, I tried out a new solution:
+Not wanting to deal with more consistency issues<sup>[^nb-2]</sup>, I tried out a new solution:
 
 ```
 OSL Script
@@ -392,9 +392,9 @@ Something isn't right here, but I'm not sure what.
 
 If we trace our steps back, all the way back, there's one other thing we did right before the game started crashing. We started *deallocating* memory.
 
-Now according to [GNU Mach documentation](http://www.gnu.org/software/hurd/gnumach-doc/Data-Transfer.html#Data-Transfer), we should be calling `vm_deallocate` on any data we read. However, *this was proving to be a problem for us*<sup>[3](#nb-3)</sup>.
+Now according to [GNU Mach documentation](http://www.gnu.org/software/hurd/gnumach-doc/Data-Transfer.html#Data-Transfer), we should be calling `vm_deallocate` on any data we read. However, *this was proving to be a problem for us*<sup>[^nb-3]</sup>.
 
-So, what was the only logical thing to do? Stop deallocating memory<sup>[4](#nb-4)</sup>! The documentation hadn't been updated in 10 years, and my experiences are from `$CURRENT_YEAR`, so let's go with that!
+So, what was the only logical thing to do? Stop deallocating memory<sup>[^nb-4]</sup>! The documentation hadn't been updated in 10 years, and my experiences are from `$CURRENT_YEAR`, so let's go with that!
 
 So we stop deallocating memory and...
 
@@ -465,10 +465,7 @@ SpiralBridge is available to look at now over [here](http://github.com/UnderMybr
 
 <hr>
 
-<sup id="nb-1">1</sup> This code may or may not run without the HUD being loaded in.
-
-<sup id="nb-2">2</sup> If your game runs slower than 60 fps (eg: 30), then these delays will take longer. If it runs faster than 60 fps (eg: 120), then these delays will take much less time.
-
-<sup id="nb-3">3</sup> Note that it wasn't *guaranteed* to be the deallocations - there were quite possibly some other things that could be causing it, but this was working for me so... ¯\\\_(ツ)\_/¯
-
-<sup id="nb-4">4</sup> There were a few other under the hood things too, but this was the main one.
+[^nb-1]: This code may or may not run without the HUD being loaded in.
+[^nb-2]: If your game runs slower than 60 fps (eg: 30), then these delays will take longer. If it runs faster than 60 fps (eg: 120), then these delays will take much less time.
+[^nb-3]: Note that it wasn't *guaranteed* to be the deallocations - there were quite possibly some other things that could be causing it, but this was working for me so... ¯\\\_(ツ)\_/¯
+[^nb-4]: There were a few other under the hood things too, but this was the main one.
