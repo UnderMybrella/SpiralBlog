@@ -5,7 +5,7 @@ date: 2019-06-21 15:22:00 +1000
 comments: false
 ---
 
-Unlike Bethesda developers, I pride myself on using code that wasn't written around the time I was born. 
+Unlike Bethesda developers, I pride myself on using code that *wasn't* written around the time I was born. 
 
 You know what that means -
 
