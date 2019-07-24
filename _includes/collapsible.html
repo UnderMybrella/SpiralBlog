@@ -1,0 +1,5 @@
+<button data-toggle="collapse" data-target="#{{ include.id | default: 'demo' }}">{{ include.text | default: 'Expand' }}</button>
+
+<div id="{{ include.id | default: 'demo' }}" class="collapse">
+    {{ include.content }}
+</div>
