@@ -75,7 +75,7 @@ How does OSL 2 handle this?
 
 `0x33|$stateKeyTimeOfDay, $stateOpSet, 0, $stateValMorning`
 
-By defining an explicit grammar that can reference a variable, we can save a ***lot*** of hassle. This is inline with the goal for OSL 2, which - oh yeah, let's get to that actually.
+By defining an explicit grammar that can reference a variable, we can save a ***lot*** of hassle. This is inline with the goal for OSL 2, which - oh yeah, let's talk about that actually.
 
 ## Second Time's The Charm
 
