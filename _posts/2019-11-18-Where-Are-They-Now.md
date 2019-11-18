@@ -49,7 +49,7 @@ Thus, most of the time and effort will be spent on getting *Danganronpa: Trigger
 
 What's currently missing, you might ask?
 
-- [BST](https://wiki.spiralframework.info/wiki/Binary_Script_Template) data
+- [BST](https://wiki.spiralframework.info/wiki/Binary_Spiral_Template) data
 - Figuring out the extra data in minigames + documenting
 - Figuring out more of the lin opcodes
 - Writing a comprehensive GMO parser
