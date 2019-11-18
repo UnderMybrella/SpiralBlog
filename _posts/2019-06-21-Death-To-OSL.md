@@ -13,7 +13,7 @@ You know what that means -
 
 ![OSL... 2!](https://media1.giphy.com/media/8eaZtOiVHKsko/giphy.gif)
 
-^|[Peggle 2](https://www.youtube.com/watch?v=Sr57Je1fVvM) | *Also known as probably the most expensive part of Spiral now, actually[^peggle-2]*
+^> [Peggle 2](https://www.youtube.com/watch?v=Sr57Je1fVvM) | *Also known as probably the most expensive part of Spiral now, actually[^peggle-2]*
 
 So, let's get some things out of the way first. 
 - Yes, OSL *technically* works as-is.
@@ -24,7 +24,7 @@ So, let's get some things out of the way first.
 Alright, everyone on the same page? Perfect.
 
 ## Everything is Different
-^|*A stranger in my own home*
+^> *A stranger in my own home*
 
 OSL "2" is similar, yet different. This is true even at a technical level; the entire system responsible for parsing OSL scripts has been overturned. Exciting!
 
@@ -50,9 +50,7 @@ OSL Scripts need to model scripts for the four games, and associated minigames -
 
 Take nonstop debates for instance. They need *three* different files to be created (e01_102_000.lin, e01_102_001.lin, nonstop_01_001.dat) and maintain a consistent state over them which is...
 
-![xkcd 1349](https://imgs.xkcd.com/comics/shouldnt_be_hard.png)
-
-^|[xkcd 1349](https://xkcd.com/1349) | *You'd think this would be easier, and then I would tell you you're wrong. That's just the natural order.*
+{% include xkcd.html comic=1349 comment="*You'd think this would be easier, and then I would tell you you're wrong. That's just the natural order.*" %}
 
 ...yeah, it's not great.
 
@@ -88,7 +86,7 @@ So, let's do a post-mortem of the issues with OSL 1, so that we can focus on wha
 
 ![Death to OSL](/images/death-to-osl@0,5x.jpg)
 
-^|[Vsauce - Should I Die?](https://www.youtube.com/watch?v=zRxI0DaQrag) | *An important decision in every file format's life*
+^> [Vsauce - Should I Die?](https://www.youtube.com/watch?v=zRxI0DaQrag) | *An important decision in every file format's life*
 
 Let's start with a few glossary terms. Not the most fun, I know I know. But considering at least some people reading this aren't intimately familiar with exactly how OSL works, it's important to explain.
 

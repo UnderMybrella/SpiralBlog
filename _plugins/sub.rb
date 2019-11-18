@@ -12,7 +12,12 @@ module Jekyll
     end
 
     def convert(content)
-      content.gsub(/\^\|(.*)([\r\n])/, "<sub>\\1</sub>\\2")
+      convContent = content.gsub(/\^\> (.*?)(?:([\r\n])| \<\^)/, "<sub>\\1</sub>\\2")
+      if convContent == content then
+          return content
+      else
+          return convert(convContent)
+      end
     end
   end
 end

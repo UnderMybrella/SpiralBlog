@@ -57,7 +57,7 @@ Wait For Input|
 Script|0, 1, 1
 Stop Script|
 ```
-<sub>*Since we control the scripts, we control the value of our variables*</sub>
+^> *Since we control the scripts, we control the value of our variables*
 
 <br>
 
@@ -97,7 +97,7 @@ Music|0, 0, 0
 Script|0, 1, 1
 Stop Script|
 ```
-<sub>*I saved this script as "Princess Aurora" internally*</sub>
+^> *I saved this script as "Princess Aurora" internally*
 
 <br>
 
@@ -140,7 +140,7 @@ for (i in 0 until 120) {
 Script|0, 1, 1
 Stop Script|
 ```
-<sub>*The Sleeping Beauty sequel Disney never told you about*</sub>
+^> *The Sleeping Beauty sequel Disney never told you about*
 
 <br>
 
@@ -193,7 +193,7 @@ for (i in 0 until size / 2) {
     }
 }
 ```
-<sub>*If it wasn't obvious, that's 'pseudocode' above. My code is never that clean in practice*</sub>
+^> *If it wasn't obvious, that's 'pseudocode' above. My code is never that clean in practice*
 
 <br>
 
@@ -202,7 +202,7 @@ Simple, "clean", and easy, right? Well, almost. Reading memory isn't too hard ([
 <hr>
 
 ## Episode II: Attack of the Documentation
-<sub>*Yeah the titles don't always work, do they...*</sub>
+^> *Yeah the titles don't always work, do they...*
 
 <br>
 
@@ -226,7 +226,7 @@ Well a quick google search gives the [correct Apple kernel page](https://develop
 
 ![disappointment 101](/images/mach_vm_region_apple.png)
 
-<sub>*And I thought my documentation was sparse...*</sub>
+^> *And I thought my documentation was sparse...*
 
 Okay, so Apple is not gonna be any help here. So, instead, what about the [previously named](https://stackoverflow.com/a/15049937) function, `vm_region`? 
 
@@ -243,7 +243,7 @@ We take a separate detour into *Python* of all places ([psutil](https://github.c
 A blank region detail, in one of our earlier *Danganronpa* regions. What. The. Hell.
 
 ### Episode II.V: JNA Hell
-<sub>*Not a funny title this time, just the truth*</sub>
+^> *Not a funny title this time, just the truth*
 
 To try and figure out exactly what's going wrong here, I end up jumping down the rabbit hole to debug this.
 
@@ -264,7 +264,7 @@ Another hour or two spent searching for *something*, for ***someone*** who has h
 So, time to write some really hacky code to try and work around that, and here we are.
 
 ## Episode III: Revenge of the Bear
-<sub>*This is about the 20 hour mark btw*</sub>
+^> *This is about the 20 hour mark btw*
 
 <br>
 
@@ -278,7 +278,7 @@ Instead of sleeping for a flat 2s, we can sleep instead for a number of frames e
 
 val waitXFrames = ceil(((maxLoopTime * 1.5) * 5) / (TimeUnit.NANOSECONDS.convert(1, TimeUnit.SECONDS) / 60)).toInt()
 ```
-<sub>*Don't worry, this feels worse than it looks*</sub>
+^> *Don't worry, this feels worse than it looks*
 
 <br>
 
@@ -292,7 +292,7 @@ We hit our next major issue here -
 
 ![What the fuck](/images/danganronpa_segfault.png)
 
-<sub>*Trust me, I wish I could make this up*</sub>
+^> *Trust me, I wish I could make this up*
 
 <br>
 
@@ -356,7 +356,7 @@ So it turns out that our code to get the memory region, which returns a `kern_re
     KERN_INVALID_ARGUMENT(4),
     KERN_FAILURE(5);
 ```
-<sub>*Guess Colonel Sanders didn't quite make the Top 6*</sub>
+^> *Guess Colonel Sanders didn't quite make the Top 6*
 
 This is all handy dandy, but our code returns ***268435459*** when Danganronpa segfaults.
 
@@ -382,7 +382,7 @@ And still, we're left with nothing. The game closes on startup (the most reliabl
 I write some code to check region boundaries before we crash, no luck. At this point, it's late, I'm tired. It's been close to 30 hours total, and I call it a night.
 
 ## Episode IV: A New Hope
-<sub>*Yeah, this one is unchanged, because it's too true.*</sub>
+^> *Yeah, this one is unchanged, because it's too true.*
 
 I come back to this mess of a project later that Friday (it's actually proper working hours now), and I sit down and run the game a few more times.
 
@@ -409,7 +409,7 @@ And that's that! We can synchronise with *Danganronpa*, we have access to the ga
 <hr>
 
 ## Episode V: Bad Code Strikes Back
-<sub>*It was only a matter of time*</sub>
+^> *It was only a matter of time*
 
 <br>
 
@@ -428,7 +428,7 @@ These end up stacking up over hundreds of potential iterations, so doing away wi
 We use a sleep too, to give us some time for the CPU to catch its breath, and we try reading into an array to save on time and memory. None of this proves particularly helpful, however, so more aggressive calls need to be made...
 
 ## Episode VI: Return of `vm_remap` 
-<sub>*A diamond in the rough*</sub>
+^> *A diamond in the rough*
 
 <br>
 
@@ -443,7 +443,7 @@ This saves us massive amounts of memory and time; while our code is overall slow
 <hr>
 
 ## `fin`
-<sub>*Holy shit we made it*</sub>
+^> *Holy shit we made it*
 
 <br>
 
