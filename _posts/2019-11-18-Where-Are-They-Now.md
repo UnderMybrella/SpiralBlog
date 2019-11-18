@@ -53,7 +53,7 @@ What's currently missing, you might ask?
 - Figuring out the extra data in minigames + documenting
 - Figuring out more of the lin opcodes
 - Writing a comprehensive GMO parser
-- Continued work on [OSL 2](/2019/06-Death-To-OSL)
+- Continued work on [OSL 2](/2019/06/Death-To-OSL)
 - (Optionally) tackling SFL files more
 
 The big test that will allow me to move on will be porting a trial over from Danganronpa V3, and seeing how well it all works.
