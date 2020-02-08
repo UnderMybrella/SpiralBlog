@@ -13,9 +13,7 @@ I'd say getting the Windows portion done in less than 10 hours is worthy of a ce
 
 *[Previously, on SpiralBridge]({{ site.baseurl }}{% post_url 2018-09-09-SpiralBridge %})*
 
-![xkcd 1722](https://imgs.xkcd.com/comics/debugging.png)
-
-<sub>[xkcd 1722](https://xkcd.com/1722/) | *I wish I got a cool sword out of that, honestly*</sub>
+{% include xkcd.html comic=1722 comment="*I wish I got a cool sword out of that, honestly*" %}
 
 <hr>
 
@@ -55,9 +53,7 @@ Let's take a step back and use an analogy for memory. Instead of using all these
 
 In this analogy, the Windows and mach (for macOS) kernels are the libraries themselves. They employ a librarian (memory manager) to keep track of the books (memory addresses, where you can **read** memory ~~please laugh I'm trying my best~~).
 
-![xkcd 1364](https://imgs.xkcd.com/comics/like_im_five.png)
-
-<sub>[xkcd 1364](https://xkcd.com/1364/) | *I try my best, but technical analogies aren't always easy, especially when you're dealing with low level programming...*</sub>
+{% include xkcd.html comic=1364 comment="*I try my best, but technical analogies aren't always easy, especially when you're dealing with low level programming...*" %}
 
 These books have to be sorted and placed somewhere, and each librarian will come up with different ways for this. In our mach library, you only have a couple of shelves at first, with long rows of books. While there's lots of rows, everything is ordered properly, and while it takes you a while to get the order, once you've figured it out it's consistent.
 
@@ -72,7 +68,7 @@ Look, this is where the analogy starts to break down; either that, or I do. Whil
 So with that, let's start from the very beginning, a very good place to start...
 
 ## Episode VII: The Kernel Awakens
-<sub>*This actually works better than I expected; both the name and the program*</sub>
+^> *This actually works better than I expected; both the name and the program*
 
 <br>
 
@@ -98,9 +94,7 @@ But Kernel32 is a cruel mistress. By allocating lots of small regions all over t
 
 -... okay, this has to be dynamic. One moment.
 
-![xkcd 883](https://imgs.xkcd.com/comics/pain_rating.png)
-
-<sub>[xkcd 883](https://xkcd.com/883/) | *Not gonna lie, Windows put me at a solid 3, today*</sub>
+{% include xkcd.html comic=883 comment="*Not gonna lie, Windows put me at a solid 3, today*" %}
 
 <br>
 
@@ -145,7 +139,7 @@ Honestly, it was incredibly disheartening. I was prepared to give up with any ki
 <br>
 
 ## Episode VIII: The Last Hack
-<sub><sub>*HAHAHAHA god I wish*</sub></sub>
+^> ^> *HAHAHAHA god I wish* <^ <^
 
 <br>
 
