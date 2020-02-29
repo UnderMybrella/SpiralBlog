@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "The Birth of OSL; Nothing stays dead forever"
-date: 2019-06-22 13:01:00 +1000
+title: "The (Re)Birth of OSL; Nothing stays dead forever"
+date: 2020-02-07 16:10:00 +1000
 comments: false
 ---
 
-The script isn't even cold, and here we are. Enter: OSL 2.
+The scripts aren't even cold, and yet here we are. Enter: OSL 2.
 
 <!-- more -->
 
@@ -166,6 +166,44 @@ Visitors allow us to handle parsing at a token-by-token level, which is perfect 
 
 As an unintended side effect, it also allows for type coercion for basic drills; text is *natively handled* by the simple fact that we add a string to the lin file and return the index, it's that simple. Booleans can also be handled easily, since they map to a truthy value we just coerce 'true' as 1, and 'false' as 0.
 
+So hang on, so far this is seeming simple enough[^not-really-simple], what's wrong here? How could I possibly make this more compli-
+
+## Doomed to Repeat
+
+I'm never one to leave things nice and simple. There's always got to be some element of it that's over-engineered to Hell and back; what's OSL 2's?
+
+A new component called Open Spiral Bitcode.
+
+First, let's break down the parsing stages of OSL 2, with an example script:
+
+```osl
+OSL Script
+val protagonist = "Monokuma"
+Text|"Hello, world!"
+Makoto: "Hi there!"
+$protagonist: "Despair!"
+```
+
+There's one big big central problem here - we need to know several values at compile time! Some values, like `Makoto` and `Monokuma` need to be known and available for OSL to be able to transform this into a lin.
+
+This presents a central problem - the script files need to be present in their OSL form if we're going to support compiling to multiple games.
+
+It also means that, inherently, the parsing and compiling stages of OSL are coupled - any OSL parser needs to be able to compile to lin or word scripts, but also needs to be able to import those values! This is, to put it lightly, a bit of overhead that isn't always desirable.
+
+**O**pen **S**piral **B**itcode (OSB) is a component designed to change that. By storing the operations an OSL compiler would in nice easy-to-parse steps, our flow becomes OSL Parser -> OSB Parser -> Lin Compiler, which ends up being much easier to handle and a fair bit more robust.
+
+OSB can be written to or read from in theoretically *any* language without much of a technical difficulty, and allows parsers to be written in any language supported by ANTLR without needing to *also* handle compilation, necessarily.
+
+If you're interested in a more technical writeup of OSB, please check out the [wiki page](https://wiki.spiralframework.info/Open_Spiral_Bitcode).
+
+## A Long Journey
+
+While basic parsing is supported now, there's still a long way to go with OSL. We need to figure out exactly what makes the game 'tick', so to speak, and all the nuances of several opcodes. 
+
+This is an ongoing journey, one that can't be easily summarised in a blog post. If you're interested in helping us out, feel free to join the Spiral Framework Discord server. We'd love to hear from you.
+
 ---
 
 [^take-my-word]: For those of you that don't fully understand what I'm talking about at a technical level: You'll just have to take my word for it
+
+[^not-really-simple]: It's not, really, but internally it's a lot cleaner. Trust me.
