@@ -119,14 +119,14 @@ Take the above workflow, for instance. There's a few neat changes I'm hoping to 
 - A workflow command/structure that automagically reruns commands when a file is modified - no more needing to change, save, rerun, etc. Now, just tell Spiral what you want to do, when you want to do it, and it'll make it happen!
 - **Treat folders as archives**. This was a big, big failing previously, where you had to wrap the directory to a zip first, and *then* convert it. That's extra work that doesn't serve any purpose, so we should be able to just make it happen by itself.
     - Take the following syntax: `convert archive("directory/path/here") to pak`, which replaces the previous wrap + convert step.
-    - But we can go deeper. Take the following command: `convert archive("directory/path/here, transform = "convert {0} from png to tga") to pak`, which replaces the previous convert to tga + wrap + convert.
+    - But we can go deeper. Take the following command: `convert archive("directory/path/here", transform = "convert {0} from png to tga") to pak`, which replaces the previous convert to tga + wrap + convert.
 - Provide 'pipeline' script commands for common tasks. This one's a bit complicated, so let's talk about it.
 
 The 'pipeline' structure is a way of writing your own script commands, so that you can take common tasks and run them multiple times.
 
 Take our directory conversion command from earlier:
 
-`convert archive("directory/path/here, transform = "convert {0} from png to tga") to pak`
+`convert archive("directory/path/here", transform = "convert {0} from png to tga") to pak`
 
 This command is going to be run a fair amount, so what if we wrote a custom command to run it, so it's easy to remember?
 
