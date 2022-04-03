@@ -105,17 +105,17 @@ The components are... relatively simple - in theory. But due to duplication, rep
 
 Let's just say it's...
 
-{% collapse collapsible.html id='osl-2-basic-lin-full' %}
+{% inline collapsible.html id='osl-2-basic-lin-full' %}
 {% include svgs/osl-2-basic-lin-full.svg %}
-{% endcollapse %}
+{% endinline %}
 
 *not the most fun.*
 
 Now that's not to say that I can't show you *any* of it; the parsing code for values has gotten a bit better:
 
-{% collapse collapsible.html id='osl-2-basic-lin-value' %}
+{% inline collapsible.html id='osl-2-basic-lin-value' %}
 {% include svgs/osl-2-basic-lin-value.svg %}
-{% endcollapse %}
+{% endinline %}
 
 This is a very important step back for us to take a step forward; this parsing code can be run *completely independently* from Spiral, technically; a basic ANTLR parser set up with this grammar will be able to verify that our statement is, in fact, valid.
 

@@ -2,6 +2,9 @@
 
 <script src="{{ site.baseurl}}/assets/global/anchor.min.js"></script>
 <script src="{{ site.baseurl}}/assets/global/jquery-3.3.1.min.js"></script>
+{% if page.tweets %}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endif %}
 
 <script>
     $(function() {

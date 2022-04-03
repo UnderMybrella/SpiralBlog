@@ -1,6 +1,6 @@
 require 'jekyll'
 
-class Collapsible < Liquid::Block
+class Inline < Liquid::Block
   def initialize(tag_name, markup, parse_context)
     super
     @markup = markup
@@ -12,5 +12,5 @@ class Collapsible < Liquid::Block
     @template.render(_context)
   end
 
-  Liquid::Template.register_tag 'collapse', self
+  Liquid::Template.register_tag 'inline', self
 end

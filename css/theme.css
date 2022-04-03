@@ -53,3 +53,19 @@ body {
 .footnotes {
     display: none;
 }
+
+.well a {
+    overflow-wrap: anywhere;
+}
+
+.elongated {
+    overflow-wrap: anywhere;
+}
+
+a.footnote:before {
+    content: " [";
+}
+
+a.footnote:after {
+    content: "]";
+}

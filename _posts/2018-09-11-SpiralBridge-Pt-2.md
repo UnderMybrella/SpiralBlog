@@ -7,7 +7,7 @@ comments: false
 
 I'd say getting the Windows portion done in less than 10 hours is worthy of a celebration, but apparently my stomach disagrees.
 
-<!--more-->
+<!-- more -->
 
 <br>
 

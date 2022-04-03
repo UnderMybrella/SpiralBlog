@@ -7,7 +7,7 @@ comments: false
 
 *sigh*
 
-<!--more-->
+<!-- more --> 
 
 I lost count after 36 hours. 36 hours on one set of features, that no one asked for, and no one really wanted.
 

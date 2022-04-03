@@ -33,10 +33,12 @@ isso: ''
 disqus: ''
 
 permalink: /:year/:month/:title
-paginate: 3
+paginate: 5
 
 highlighter: rouge
 markdown: kramdown
 plugins: ['jekyll-paginate', 'jekyll-sitemap']
 
 exclude: ['README.md', 'LICENSE']
+
+excerpt_separator: <!-- more -->
